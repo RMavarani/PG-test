@@ -1,0 +1,47 @@
+
+{% extends "base.html" %}
+{% block content %}
+<!-- drop down menu which allows to remove the product from the list i would change dropdown to checkBox but unfortunately could get it working -->
+<br>
+<div class="float-end">
+<div class="btn-group">
+    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      FilterOut Product
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" onclick="filter('Cake')">Cake</a></li>
+      <li><a class="dropdown-item" onclick="filter('Canned Drink')">Canned Drink</a></li>
+      <li><a class="dropdown-item" onclick="filter('Cookie')">Cookie</a></li>
+      <li><a class="dropdown-item" onclick="filter('Hot Drink')">Hot Drink</a></li>
+    </ul>
+</div>
+</div><br>
+
+<div class="overflow-scroll">
+    <table class="table table-success table-striped"  id="Sales">
+        <thead>
+            <tr>
+                <th> Product </th>
+                <th> Product Type </th>
+                <th> Price </th>
+                <th> Unit Sold </th>
+                <th> Quarter </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <!-- print out the each quarter on the screen -->
+            {% for r in rs %}
+            <tr>
+                <td> {{r[1]}} </td>
+                <td> {{r[2]}} </td>
+                <td> {{r[3]}} </td>
+                <td> {{r[4]}} </td>
+                <td> {{r[5]}} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+</div>
+
+{% endblock %}

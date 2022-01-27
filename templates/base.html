@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--  JavaScript and CSS has been loaded  from bootstrap -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </head>      
+
+ <header>
+    <div class="shadow-lg p-3 mb-5 bg-body rounded">
+    <h1>Goblin’ Cakes – Sales by Quarter</h1>
+    <a type="button" class="btn btn-outline-primary"href="/sales/1">1st Quarter</a>
+    <a type="button" class="btn btn-outline-primary"href="/sales/2">2nd Quarter</a>
+    <a type="button" class="btn btn-outline-primary"href="/sales/3">3rd Quarter</a>
+    <a type="button" class="btn btn-outline-primary"href="/sales/4">4th Quarter</a>
+    </div>
+ </header>
+ <body>
+
+  <div>
+     {% block content %}{% endblock %}
+  </div>
+
+<script>
+  function filter(element) {
+    // Declare variables which will arrive from filter box this method was taken from W3school and changed. 
+    var input, filter, table, tr, td, i, txtValue;
+    filter = element.toUpperCase();
+    table = document.getElementById("Sales");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who  match the search query
+   
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "none";
+        } else {
+          tr[i].style.display = "";
+        }
+      }
+    }
+    
+  }
+  </script>
+
+</body>
+</html>
